@@ -49,14 +49,14 @@ struct Contract: Codable {
 
 struct Coach: Codable {
   let id: Int
-  let firstName: String
-  let lastName: String
+  let firstName: String?
+  let lastName: String?
   let name: String
-  let dateOfBirth: String
-  let nationality: String
-  let contract: Contract
+  let dateOfBirth: String?
+  let nationality: String?
+  let contract: Contract?
 
-  init(id: Int, firstName: String, lastName: String, name: String, dateOfBirth: String, nationality: String, contract: Contract) {
+  init(id: Int, firstName: String? = nil, lastName: String? = nil, name: String, dateOfBirth: String? = nil, nationality: String? = nil, contract: Contract? = nil) {
     self.id = id
     self.firstName = firstName
     self.lastName = lastName
@@ -72,14 +72,14 @@ struct Player: Codable {
   let firstName: String?
   let lastName: String?
   let name: String
-  let position: String
-  let dateOfBirth: String
-  let nationality: String
+  let position: String?
+  let dateOfBirth: String?
+  let nationality: String?
   let shirtNumber: Int?
   let marketValue: Int?
-  let contract: Contract
+  let contract: Contract?
 
-  init(id: Int, firstName: String? = nil, lastName: String? = nil, name: String, position: String, dateOfBirth: String, nationality: String, shirtNumber: Int? = nil, marketValue: Int? = nil, contract: Contract) {
+  init(id: Int, firstName: String? = nil, lastName: String? = nil, name: String, position: String? = nil, dateOfBirth: String? = nil, nationality: String? = nil, shirtNumber: Int? = nil, marketValue: Int? = nil, contract: Contract? = nil) {
     self.id = id
     self.firstName = firstName
     self.lastName = lastName
@@ -98,11 +98,11 @@ struct Staff: Codable {
   let firstName: String?
   let lastName: String?
   let name: String
-  let dateOfBirth: String
-  let nationality: String
-  let contract: Contract
+  let dateOfBirth: String?
+  let nationality: String?
+  let contract: Contract?
 
-  init(id: Int, firstName: String? = nil, lastName: String? = nil, name: String, dateOfBirth: String, nationality: String, contract: Contract) {
+  init(id: Int, firstName: String? = nil, lastName: String? = nil, name: String, dateOfBirth: String? = nil, nationality: String? = nil, contract: Contract? = nil) {
     self.id = id
     self.firstName = firstName
     self.lastName = lastName
@@ -114,23 +114,23 @@ struct Staff: Codable {
 }
 
 struct Team: Codable {
-  let area: Area
+  let area: Area?
   let id: Int
   let name: String
-  let shortName: String
-  let tla: String
-  let crest: String
-  let address: String
-  let website: String
-  let founded: Int
-  let clubColors: String
-  let venue: String
-  let runningCompetitions: [Competition]
-  let coach: Coach
-  let marketValue: Int
-  let squad: [Player]
-  let staff: [Staff]
-  let lastUpdated: String
+  let shortName: String?
+  let tla: String?
+  let crest: String?
+  let address: String?
+  let website: String?
+  let founded: Int?
+  let clubColors: String?
+  let venue: String?
+  let runningCompetitions: [Competition]?
+  let coach: Coach?
+  let marketValue: Int?
+  let squad: [Player]?
+  let staff: [Staff]?
+  let lastUpdated: String?
 
   init() {
     area = Area(id: 2224, name: "Spain", code: "ESP", flag: "https://crests.football-data.org/760.svg")
@@ -164,7 +164,7 @@ struct Team: Codable {
     lastUpdated = "2022-05-03T08:22:26Z"
   }
 
-  init(area: Area, id: Int, name: String, shortName: String, tla: String, crest: String, address: String, website: String, founded: Int, clubColors: String, venue: String, runningCompetitions: [Competition], coach: Coach, marketValue: Int, squad: [Player], staff: [Staff], lastUpdated: String) {
+  init(area: Area? = nil, id: Int, name: String, shortName: String? = nil, tla: String? = nil, crest: String? = nil, address: String? = nil, website: String? = nil, founded: Int? = nil, clubColors: String? = nil, venue: String? = nil, runningCompetitions: [Competition]? = nil, coach: Coach? = nil, marketValue: Int? = nil, squad: [Player]? = nil, staff: [Staff]? = nil, lastUpdated: String? = nil) {
     self.area = area
     self.id = id
     self.name = name
