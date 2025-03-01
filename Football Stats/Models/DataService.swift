@@ -16,7 +16,7 @@ struct DataService {
       return Team()
     }
     
-    if let url = URL(string: "https://api.football-data.org/v4/teams/10") {
+    if let url = URL(string: "https://api.football-data.org/v4/teams/\(Int.random(in: 1...99))") {
       var request = URLRequest(url: url)
       request.addValue(apiKey, forHTTPHeaderField: "X-Auth-Token")
       
